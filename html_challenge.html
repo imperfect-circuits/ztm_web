@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Periodic table</title>
+</head>
+<body>
+<h1>Common elements</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Symbol</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Carbon</td>
+            <td>C</td>
+            <td>
+                <a href="https://www.youtube.com/watch?v=lWA2pjMjpBs">
+                    <img width="300px" alt="Man's best friend" src="https://cdn.britannica.com/28/8028-004-8469CD5B/Diamond.jpg?s=1500x700&q=85" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>Lithium</td>
+            <td>Li</td>
+            <td>
+                <a href="https://www.youtube.com/watch?v=pkcJEvMcnEg">
+                    <img width="300px" alt="Reaching nirvana" src="https://images.agoramedia.com/everydayhealth/gcms/Lithium-Beats-Newer-Meds-for-Bipolar-Disorder-RM-1440x810.jpg" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>Watson</td>
+            <td>Ws</td>
+            <td>
+                <a href="https://www.youtube.com/watch?v=f8FAJXPBdOg">
+                    <img width="300px" alt="Elementary, my dear!" src="https://productimages.worldofbooks.com/0786712449.jpg?weAreSmarterThanEbay=1587800814622" />
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h1>Submit a new element</h1>
+<p>This will be reviewed by the Periodic Table Consortium.</p>
+<form>
+    <label for="elementname">Name of new element</label>
+    <input type="text" id ="elementname" name="name"><br />
+    <label for="elementsymbol">Chemical Symbol (in the form Xx)</label>
+    <input type="text" id ="elementsymbol" name="symbol" pattern="[A-Z][a-z]"><br />
+    <label for="elementdatefound">Date found</label>
+    <input type="date" id ="elementdatefound" name="datefound"><br />
+    <label for="elementcolour">Colour</label>
+    <input type="color" id ="elementcolour" name="colour"><br />
+    <label for="elementconsumable">Can it be eaten?</label>
+    <input type="checkbox" id ="elementconsumable" name="consumable"><br />
+    <input type="submit" value="Submit new element">
+    <input type="reset" value="Clear form">
+</form>
+</body>
+</html>
