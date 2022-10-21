@@ -67,10 +67,26 @@
             height: 50px;
             width: 15px;
             margin: 0 25px 0 25px;
-            transform-origin: top;
         }
         .left_leg:hover {
+            transform-origin: top;
             transform: rotate(30deg);
+        }
+        .android:hover .right_arm {
+            transform-origin: top;
+            transform: rotate(120deg) translateX(10px);
+        }
+        .android:hover .left_arm {
+            transform-origin: top;
+            transform: rotate(120deg)
+        }
+        .android:hover .head {
+            transform-origin: bottom left;
+            transform: rotate(10deg);
+        }
+        .android:hover [class$="eyes"] {
+            /* transform-origin: bottom left; */
+            transform: scaleY(30%);
         }
     </style>
 </head>
