@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RoboPage</title>
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .android * {
+            /* background-color: blue; */
+            margin: 5px;
+        }
+        .android .head, .android :empty:not(.left_eye):not(.right_eye) {
+            background-color: blue;
+        } 
+        .head {
+            border-radius: 50% 50% 0 0;
+            /* border-top-right-radius: 50%; */
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            display:flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .eyes {
+            display: flex;
+            flex-direction: row;
+        }
+        .eyes * {
+            background-color: white;
+            border-radius: 100%;
+            width:10px;
+            height:10px;
+            
+        }
+        .upper_body {
+            display: flex;
+            flex-direction: row;
+        }
+        .torso {
+            border-radius: 0% 0% 30px 30px;
+            height: 150px;
+            width: 100px;
+        }
+        [class$="arm"] {
+            border-radius: 40px 40px;
+            height: 40px;
+            width: 15px;
+        }
+        .left_leg, .right_leg {
+            border-radius: 50px 50px;
+            height: 50px;
+            width: 15px;
+            transform-origin: top left;
+        }
+        .left_leg:hover {
+            transform: rotate(30deg);
+        }
+    </style>
+</head>
+<body>
+	<h1>Robot Friend</h1>
+	<div class="robots">
+		<div class="android"> 
+			<div class="head"> 
+				<div class="eyes"> 
+					<div class="left_eye"></div> 
+					<div class="right_eye"></div>
+				</div> 
+			</div> 
+			<div class="upper_body"> 
+				<div class="left_arm"></div> 
+				<div class="torso"></div> 
+				<div class="right_arm"></div> 
+			</div> 
+			<div class="lower_body"> 
+				<div class="left_leg"></div> 
+				<div class="right_leg"></div> 
+			</div> 
+		</div>
+	</div>
+</body>
+</html>
