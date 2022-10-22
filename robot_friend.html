@@ -75,18 +75,22 @@
         .android:hover .right_arm {
             transform-origin: top;
             transform: rotate(120deg) translateX(10px);
+            transition: transform 0.5s cubic-bezier(0.5, 0, 1, 0.5) 0.5s;
         }
         .android:hover .left_arm {
             transform-origin: top;
-            transform: rotate(120deg)
+            transform: rotate(120deg);
+            transition: transform 0.5s cubic-bezier(0.5, 0, 1, 0.5) 0.5s;
         }
         .android:hover .head {
             transform-origin: bottom left;
-            transform: rotate(10deg);
+            transform: rotate(10deg) translateX(8px);
+            transition: transform 0.5s cubic-bezier(0.5, 0, 1, 0.5) 0.5s;
         }
         .android:hover [class$="eyes"] {
             /* transform-origin: bottom left; */
             transform: scaleY(30%);
+            transition: transform 0.5s linear 0.5s;
         }
     </style>
 </head>
