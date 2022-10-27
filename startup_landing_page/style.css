@@ -4,3 +4,24 @@ html {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
+body {
+  background-image: url('header.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+}
+#container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height:  100%;
+}
+h1 {
+ /*align*/
+ color: white;
+ text-transform: uppercase;
+}
+.btn-default {
+  background-color: orange;
+}
