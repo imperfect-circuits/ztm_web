@@ -12,6 +12,9 @@ html {
 h1 {
  color: #e2dbdb;
 }
+.buffer {
+  height: 10rem;
+}
 .btn {
   font-weight: 700;
   border-radius: 300px;
