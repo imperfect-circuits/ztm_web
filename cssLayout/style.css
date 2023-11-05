@@ -103,10 +103,12 @@ body {
     align-items:center;
 }
 #projectGrid {
-    /* display: flex; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 #projectGrid img {
-    max-width: 300px;
+    max-width: 150px;
     background-color: rgb(56, 56, 56);
     border: gray;
     margin:10px;
