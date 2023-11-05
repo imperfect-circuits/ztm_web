@@ -1,6 +1,4 @@
 .zone {
-    padding:30px 50px;
-    margin:40px 60px;
     cursor:pointer;
     display:inline-block;
     color:#FFF;
@@ -91,12 +89,18 @@ body {
 #header ul li {
     margin:0px 20px;
 }
-#header #contactUs {
-    /* align-self: flex-end */
+
+@media only screen and (max-width: 700px){
+    #header {
+        font-size: 0.8em;
+    }
 }
 #cover {
-    height:400px;
-    text-align: center;
+    height:40vh;
+    /* text-align: center; */
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 #projectGrid {
     /* display: flex; */
