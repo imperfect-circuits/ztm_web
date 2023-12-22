@@ -14,11 +14,7 @@ function createListElement() {
 	// create button to add to list element for closure
 	var closeButton = document.createElement("button");
 	closeButton.appendChild(document.createTextNode("X"));
-	closeButton.addEventListener("click",deleteListItem);
 	li.appendChild(closeButton);
-
-	// add toggle to show if item is done
-	li.addEventListener("click", markAsDone);
 
 	// add to list
 	ul.appendChild(li);
@@ -40,10 +36,20 @@ function addListAfterKeypress(event) {
 }
 
 function markAsDone(event) {
+	// console.log(`markAsDone ${event.target.nodeName}`);
+	// skip if target is not a list item
+	if (event.target.nodeName !== 'LI') {
+		return;
+	}
 	event.target.classList.toggle("done");
 }
 
 function deleteListItem(event) {
+	// console.log(`deleteListItem ${event.target.nodeName}`);
+	// skip if target is not the close button
+	if (event.target.nodeName !== 'BUTTON') {
+		return;
+	}
 	// don't delete if the line is not marked as done
 	var currentListItem = event.target.parentElement;
 	if (!currentListItem.classList.contains("done")) {
@@ -57,12 +63,5 @@ button.addEventListener("click", addListAfterClick);
 
 input.addEventListener("keypress", addListAfterKeypress);
 
-// add event listeners to the list items and close buttons
-for (child of ul.children) {
-	// add 'done' toggle to item
-	child.addEventListener("click", markAsDone);
-};
-for (closeButton of document.querySelectorAll("ul li button")) {
-	// add 'done' toggle to item
-	closeButton.addEventListener("click", deleteListItem);
-};
+ul.addEventListener("click", markAsDone);
+ul.addEventListener("click", deleteListItem);
