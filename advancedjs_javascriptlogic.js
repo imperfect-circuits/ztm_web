@@ -65,13 +65,48 @@ console.log(cleanTheRoom([1, "2", "3", 2], true));
  * Write a javascript function that takes an array of numbers and a target number.
  * The function should find two different numbers in the array that, when added together,
  * give the target number. For example: answer([1,2,3], 4) should return [1,3]
+ * Question ambiguous, so will return the values, not the indexes
+ * @param {number[]} inputArray
+ * @param {number} targetNumber 
  */
 function findSumTargets(inputArray, targetNumber) {
 
+    let first = 0;
+    let second = 0;
+
+    // first create unique set of numbers
+    let newArray = Array.from(new Set(inputArray));
+    console.log('searching for '+targetNumber+' with the set '+newArray);
+
+    // perform search
+    let searchDone = false;
+    for (first = 0; first < newArray.length - 1; first++) {
+        for (second = first; second < newArray.length; second++) {
+            console.log(`loop ${first} ${second}`)
+            // match found, set bool so can break out of loop, and break
+            if (newArray[first]+newArray[second] == targetNumber) {
+                console.log('found');
+                searchDone = true;
+                break;
+            }
+        }
+        // search found in inner loop, break
+        if (searchDone) {
+            console.log('exit second');
+            break;
+        }
+    }
+
+    // return empty if no match found, otherwise the array of numbers
+    return !searchDone ? [] : [newArray[first],newArray[second]];
 }
 
+console.log(findSumTargets([1,2,3], 4));
+console.log(findSumTargets([1,2,6,1,9,6,3], 4));
+console.log(findSumTargets([1,2,6,1,8,6,3], 14));
+
 /**
- * Quseteion 3
+ * Question 3
  * Write a function that converts HEX to RGB. Then Make that function auto-dect the
  * formats so that if you enter HEX color format it returns RGB and if you enter RGB
  * color format it returns HEX
