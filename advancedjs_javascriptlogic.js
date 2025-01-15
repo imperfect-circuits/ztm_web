@@ -107,26 +107,16 @@ console.log(findSumTargets([1,2,6,1,8,6,3], 14));
 
 /**
  * Question 3
- * Write a function that converts HEX to RGB. Then Make that function auto-dect the
+ * Write a function that converts HEX to RGB. Then Make that function auto-detect the
  * formats so that if you enter HEX color format it returns RGB and if you enter RGB
  * color format it returns HEX
- * @param {string} hexInput (#AA5498)
- * @returns {string} (space separate three numbers)
- */
-function hexToRGB(hexInput) {
-    let inputs = [hexInput.substring(1,3), hexInput.substring(3,5), hexInput.substring(5,7)];
-    let outputs = inputs.map(input => {
-        return hexCharToInt(input.substring(0,1))*16+hexCharToInt(input.substring(1,2));
-    });
-
-    return outputs.join(' ');
-}
+/
 /**
  * 
  * @param {string} input 
  */
 function hexCharToInt(input){
-    if (input > '0' && input <= '9') {
+    if (input >= '0' && input <= '9') {
         return parseInt(input);
     }
     else {
@@ -146,8 +136,13 @@ function hexCharToInt(input){
         }
     }
 }
-function intToHex(input){
-    if (input > 0 && input <= 9) {
+/**
+ * 
+ * @param {number} input 
+ * @returns 
+ */
+function intToHexChar(input){
+    if (input >= 0 && input <= 9) {
         return input.toString();
     }
     else {
@@ -167,16 +162,47 @@ function intToHex(input){
         }
     }
 }
+/**
+* Convert hex string to rgb
+* @param {string} hexInput (#AA5498)
+* @returns {string} (space separate three numbers)
+*/
+function hexToRgb(hexInput) {
+   let inputs = [hexInput.substring(1,3), hexInput.substring(3,5), hexInput.substring(5,7)];
+   let outputs = inputs.map(input => {
+    //    return hexCharToInt(input.substring(0,1))*16+hexCharToInt(input.substring(1,2));
+        return parseInt(input.substring(0,1), 16)*16 + parseInt(input.substring(1,2), 16);
+   });
+
+   return outputs.join(' ');
+}
+/**
+ * Convert rgb to hex string
+ * @param {string} rgbInput (space separate three numbers)
+ * @returns {string}
+ */
 function rgbToHex(rgbInput) {
-    parseInt()
     let inputs = rgbInput.split(' ');
     let outputs = inputs.map(input => {
-        return hexCharToInt(input.substring(0,1))*16+hexCharToInt(input.substring(1,2));
+        let fullNumber = parseInt(input);
+        let partA = Math.round(fullNumber/16,0);
+        return intToHexChar(partA)+intToHexChar(fullNumber - partA*16);
     });
 
-    return outputs.join(' ');
+    return "#"+outputs.join();
 }
 
+/**
+ * 
+ * @param {string} input 
+ * @returns 
+ */
 function autoHexRGBConverter(input) {
-
+    return input.substring(0,1) == '#' ? hexToRgb(input) : rgbToHex(input);
 }
+
+let inputs = ['#4FA307','122 213 34','7 15 16'];
+for (input of inputs) {
+    console.log(autoHexRGBConverter(input));
+}
+
