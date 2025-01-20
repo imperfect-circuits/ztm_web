@@ -185,11 +185,11 @@ function rgbToHex(rgbInput) {
     let inputs = rgbInput.split(' ');
     let outputs = inputs.map(input => {
         let fullNumber = parseInt(input);
-        let partA = Math.round(fullNumber/16,0);
+        let partA = Math.floor(fullNumber/16,0);
         return intToHexChar(partA)+intToHexChar(fullNumber - partA*16);
     });
 
-    return "#"+outputs.join();
+    return "#"+outputs.join("");
 }
 
 /**
